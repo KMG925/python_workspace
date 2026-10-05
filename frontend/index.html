@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>게시판</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>게시판</h1>
+      <span>FastAPI 실습</span>
+    </div>
+    <button class="btn primary" id="newBtn" type="button">+ 새 글</button>
+  </header>
+
+  <main id="main" data-view="list">
+    <section class="panel" id="listPanel" aria-label="게시글 목록">
+      <div class="panel-head">
+        <span>전체 글</span>
+        <span class="count" id="count">0</span>
+      </div>
+      <ul class="list" id="list"></ul>
+    </section>
+
+    <section class="panel" id="detailPanel" aria-label="게시글 상세" aria-live="polite">
+      <div class="detail" id="detail"></div>
+    </section>
+  </main>
+</div>
+
+<dialog id="formDialog">
+  <form id="postForm">
+    <h3 id="formTitle">새 글 작성</h3>
+    <label>제목
+      <input id="fTitle" name="title" required maxlength="100" autocomplete="off">
+    </label>
+    <label>작성자
+      <input id="fUser" name="user_id" required maxlength="30" autocomplete="off">
+    </label>
+    <label>내용
+      <textarea id="fContent" name="content" required></textarea>
+    </label>
+    <div class="dialog-actions">
+      <button class="btn" type="button" id="cancelBtn">취소</button>
+      <button class="btn primary" type="submit" id="submitBtn">등록</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="confirmDialog" class="small">
+  <form method="dialog">
+    <h3>게시글을 삭제할까요?</h3>
+    <p id="confirmText"></p>
+    <div class="dialog-actions">
+      <button class="btn" value="cancel">취소</button>
+      <button class="btn danger-fill" value="ok">삭제</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
