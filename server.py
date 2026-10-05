@@ -23,3 +23,5 @@ app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
 
 # cd C:\Users\MIN9YU\Documents\workspace\study_fast_api
 # .\ngrok.exe http 8080 --url=unifier-mounting-traffic.ngrok-free.dev
+
+# test_1
